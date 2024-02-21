@@ -21,7 +21,8 @@ const Contacts = async ({
 
   return (
     <div className='max-w-screen-md mx-auto mt-5'>
-      <div className='flex items-center justify-between gap-1 mb-5'>
+      <h1 className='title text-2xl mb-3'>Contacts</h1>
+      <div className='flex items-center justify-between gap-3 mb-5'>
         <Search />
         <CreateButton />
       </div>
