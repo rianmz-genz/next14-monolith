@@ -23,6 +23,16 @@ const ContactTable = async ({
         </tr>
       </thead>
       <tbody>
+        {contacts.length === 0 && (
+          <tr className='bg-white border-b'>
+            <td
+              colSpan={5}
+              className='py-3 px-6 text-center'
+            >
+              Contact Not Found..
+            </td>
+          </tr>
+        )}
         {contacts.map((contact, index) => (
           <tr
             key={contact.id}

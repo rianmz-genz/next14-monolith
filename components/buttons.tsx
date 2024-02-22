@@ -10,7 +10,7 @@ export const CreateButton = () => {
   return (
     <Link
       href='/contacts/create'
-      className='inline-flex items-center space-x-1 text-white bg-black hover:bg-black px-5 py-[9px] text-sm'
+      className='inline-flex items-center space-x-1 text-white bg-black hover:bg-black px-5 py-[9px] text-sm rounded-md'
     >
       <IoAddSharp size={20} />
       Create
