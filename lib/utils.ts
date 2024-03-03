@@ -30,3 +30,5 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+export const limitOptions = [5, 10, 25, 50, 100];

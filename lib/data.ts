@@ -1,13 +1,11 @@
 import { prisma } from '@/lib/prisma';
 
-const ITEMS_PER_PAGE = 5;
-
-export const getContacts = async (query: string, currentPage: number) => {
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+export const getContacts = async (query: string, currentPage: number, limit: number) => {
+  const offset = (currentPage - 1) * limit;
   try {
     const contacts = await prisma.contact.findMany({
       skip: offset,
-      take: ITEMS_PER_PAGE,
+      take: limit,
       where: {
         OR: [
           {
@@ -42,7 +40,7 @@ export const getContactById = async (id: string) => {
   }
 };
 
-export const getContactPages = async (query: string) => {
+export const getContactPages = async (query: string, limit: number) => {
   try {
     const contacts = await prisma.contact.count({
       where: {
@@ -62,7 +60,7 @@ export const getContactPages = async (query: string) => {
         ],
       },
     });
-    const totalPages = Math.ceil(Number(contacts) / ITEMS_PER_PAGE);
+    const totalPages = Math.ceil(Number(contacts) / limit);
     return totalPages;
   } catch (error) {
     throw new Error('Failed to fetch contact data');

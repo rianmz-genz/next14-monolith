@@ -5,11 +5,13 @@ import { EditButton, DeleteButton } from '@/components/buttons';
 const ContactTable = async ({
   query,
   currentPage,
+  currentLimit
 }: {
   query: string;
   currentPage: number;
+  currentLimit: number
 }) => {
-  const contacts = await getContacts(query, currentPage);
+  const contacts = await getContacts(query, currentPage, currentLimit);
 
   return (
     <table className='w-full text-sm text-left text-gray-500'>
